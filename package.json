@@ -1,0 +1,37 @@
+{
+  "name": "add-org-members-to-team",
+  "version": "0.0.1",
+  "description": "Command line tool for adding missing org members to a default GitHub team.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "github",
+    "api",
+    "navigation",
+    "browse",
+    "command",
+    "line",
+    "cli"
+  ],
+  "author": "John Wiley & Sons, Inc.",
+  "contributors": [
+    {
+      "name": "Benjamin Young",
+      "email": "byoung2@wiley.com"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/rest": "^16.13.4",
+    "dotenv": "^8.0.0",
+    "easy-table": "^1.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3"
+  }
+}
