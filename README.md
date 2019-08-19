@@ -4,8 +4,15 @@ GitHub doesn't have an organizational-wide "default" team...yet. So, this
 script allows you to find out who's in the org, but not in your orgs "default"
 team.
 
-The script compares the list of org members against the list of team members,
-and if that results in a non-zero number, it adds them. No more. No less.
+GitHub does offer a similar
+["Internal" repository type](https://help.github.com/en/articles/creating-an-internal-repository),
+but that may not suite everyone's needs (and it's currently in beta).
+Regardless, this is still a useful tool for adding members from one list to the
+other (for a range of reasons).
+
+Essentially, the script compares the list of organization members against the
+list of team members, and if that results in a non-zero number, it adds them.
+No more. No less.
 
 ## Usage
 
