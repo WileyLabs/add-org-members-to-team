@@ -10,3 +10,14 @@ parserOptions:
   sourceType: module
 rules:
   linebreak-style: 0
+  spaced-comment:
+    - 2
+    - always
+    - exceptions: *
+  no-console:
+    - error
+    - allow:
+        - info
+        - warn
+        - error
+

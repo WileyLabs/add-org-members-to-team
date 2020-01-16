@@ -1,4 +1,7 @@
-/* eslint no-console: ["error", { allow: ["info", "warn", "error"] }] */
+/**
+ * @copyright 2020 John Wiley & Sons, Inc.
+ * @license MIT
+ **/
 
 require('dotenv').config();
 
