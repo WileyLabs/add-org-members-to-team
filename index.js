@@ -19,7 +19,7 @@ const gh = new Octokit({
     { team_id: TEAM_ID });
   const orgMembers = await gh.paginate('GET /orgs/:org/members',
     { org: ORG_ID });
-  console.info(`${teamMembers.length} vs. ${orgMembers.length} ...so missing: ${orgMembers.length - teamMembers.length}`);
+  console.info(`${teamMembers.length} (team) vs. ${orgMembers.length} (org)`);
 
   const teamMembersLogins = teamMembers.reduce((acc, i) => {
     acc.push(i.login);
@@ -37,7 +37,7 @@ const gh = new Octokit({
   const missingLogins = Object.keys(orgMembersObj);
 
   if (missingLogins.length > 0) {
-    console.info(`found ${missingLogins.length} from all-wiley\n`, missingLogins);
+    console.info(`${missingLogins.length} accounts missing from the team\n`, missingLogins);
 
     // TODO: possibly make this a per-login confirmation step
     // TODO: ...haven't tested rate limiting here...so...yeah.
@@ -47,8 +47,16 @@ const gh = new Octokit({
           {
             team_id: TEAM_ID,
             username: login,
-          });
-        console.info(login, addition);
+          })
+          .then((resp) => {
+            let message = '';
+            if ('status' in resp.data) {
+              console.info(login, resp.data.status);
+            } else {
+              console.error(login, resp.data.message);
+            }
+          })
+          .catch(console.error);
       } catch (err) {
         console.error(err);
       }
